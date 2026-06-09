@@ -11,7 +11,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2597A7532FD874DA00808542 /* CoreChat */ = {
+		253BD8242FD87EF700075C4E /* CoreChat */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CoreChat;
 			sourceTree = "<group>";
@@ -30,7 +30,7 @@
 		2597A7482FD874DA00808542 = {
 			isa = PBXGroup;
 			children = (
-				2597A7532FD874DA00808542 /* CoreChat */,
+				253BD8242FD87EF700075C4E /* CoreChat */,
 				2597A7522FD874DA00808542 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,7 +57,7 @@
 			buildRules = (
 			);
 			fileSystemSynchronizedGroups = (
-				2597A7532FD874DA00808542 /* CoreChat */,
+				253BD8242FD87EF700075C4E /* CoreChat */,
 			);
 			name = CoreChat;
 			productName = CoreChat;
