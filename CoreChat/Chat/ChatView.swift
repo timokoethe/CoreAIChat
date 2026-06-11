@@ -27,9 +27,6 @@ struct ChatView: View {
                     .textFieldStyle(.roundedBorder)
                 
                 Button("Send") {
-                    Task {
-                        await vm.getResponse()
-                    }
                 }
                 .disabled(vm.isResponding || vm.input.isEmpty)
             }
