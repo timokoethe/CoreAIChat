@@ -6,6 +6,10 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		25053A1B2FDB367C00BE6A46 /* CoreAILM in Frameworks */ = {isa = PBXBuildFile; productRef = 25053A1A2FDB367C00BE6A46 /* CoreAILM */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		2597A7512FD874DA00808542 /* CoreChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -22,6 +26,7 @@
 		2597A74E2FD874DA00808542 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				25053A1B2FDB367C00BE6A46 /* CoreAILM in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -60,6 +65,9 @@
 				253BD8242FD87EF700075C4E /* CoreChat */,
 			);
 			name = CoreChat;
+			packageProductDependencies = (
+				25053A1A2FDB367C00BE6A46 /* CoreAILM */,
+			);
 			productName = CoreChat;
 			productReference = 2597A7512FD874DA00808542 /* CoreChat.app */;
 			productType = "com.apple.product-type.application";
@@ -88,6 +96,9 @@
 			);
 			mainGroup = 2597A7482FD874DA00808542;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				25053A192FDB367C00BE6A46 /* XCRemoteSwiftPackageReference "coreai-models" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2597A7522FD874DA00808542 /* Products */;
 			projectDirPath = "";
@@ -323,6 +334,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		25053A192FDB367C00BE6A46 /* XCRemoteSwiftPackageReference "coreai-models" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/coreai-models.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		25053A1A2FDB367C00BE6A46 /* CoreAILM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25053A192FDB367C00BE6A46 /* XCRemoteSwiftPackageReference "coreai-models" */;
+			productName = CoreAILM;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2597A7492FD874DA00808542 /* Project object */;
 	validationLevel = 1;
