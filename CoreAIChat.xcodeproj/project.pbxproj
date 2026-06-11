@@ -11,13 +11,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2597A7512FD874DA00808542 /* CoreChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2597A7512FD874DA00808542 /* CoreAIChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreAIChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		253BD8242FD87EF700075C4E /* CoreChat */ = {
+		253BD8242FD87EF700075C4E /* CoreAIChat */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CoreChat;
+			path = CoreAIChat;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -35,7 +35,7 @@
 		2597A7482FD874DA00808542 = {
 			isa = PBXGroup;
 			children = (
-				253BD8242FD87EF700075C4E /* CoreChat */,
+				253BD8242FD87EF700075C4E /* CoreAIChat */,
 				2597A7522FD874DA00808542 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,7 +43,7 @@
 		2597A7522FD874DA00808542 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2597A7512FD874DA00808542 /* CoreChat.app */,
+				2597A7512FD874DA00808542 /* CoreAIChat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,9 +51,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2597A7502FD874DA00808542 /* CoreChat */ = {
+		2597A7502FD874DA00808542 /* CoreAIChat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2597A75C2FD874DB00808542 /* Build configuration list for PBXNativeTarget "CoreChat" */;
+			buildConfigurationList = 2597A75C2FD874DB00808542 /* Build configuration list for PBXNativeTarget "CoreAIChat" */;
 			buildPhases = (
 				2597A74D2FD874DA00808542 /* Sources */,
 				2597A74E2FD874DA00808542 /* Frameworks */,
@@ -62,14 +62,14 @@
 			buildRules = (
 			);
 			fileSystemSynchronizedGroups = (
-				253BD8242FD87EF700075C4E /* CoreChat */,
+				253BD8242FD87EF700075C4E /* CoreAIChat */,
 			);
-			name = CoreChat;
+			name = CoreAIChat;
 			packageProductDependencies = (
 				25053A1A2FDB367C00BE6A46 /* CoreAILM */,
 			);
-			productName = CoreChat;
-			productReference = 2597A7512FD874DA00808542 /* CoreChat.app */;
+			productName = CoreAIChat;
+			productReference = 2597A7512FD874DA00808542 /* CoreAIChat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -87,7 +87,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2597A74C2FD874DA00808542 /* Build configuration list for PBXProject "CoreChat" */;
+			buildConfigurationList = 2597A74C2FD874DA00808542 /* Build configuration list for PBXProject "CoreAIChat" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -104,7 +104,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2597A7502FD874DA00808542 /* CoreChat */,
+				2597A7502FD874DA00808542 /* CoreAIChat */,
 			);
 		};
 /* End PBXProject section */
@@ -126,7 +126,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		2597A75A2FD874DB00808542 /* Debug configuration for PBXProject "CoreChat" */ = {
+		2597A75A2FD874DB00808542 /* Debug configuration for PBXProject "CoreAIChat" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -190,7 +190,7 @@
 			};
 			name = Debug;
 		};
-		2597A75B2FD874DB00808542 /* Release configuration for PBXProject "CoreChat" */ = {
+		2597A75B2FD874DB00808542 /* Release configuration for PBXProject "CoreAIChat" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -246,7 +246,7 @@
 			};
 			name = Release;
 		};
-		2597A75D2FD874DB00808542 /* Debug configuration for PBXNativeTarget "CoreChat" */ = {
+		2597A75D2FD874DB00808542 /* Debug configuration for PBXNativeTarget "CoreAIChat" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -260,7 +260,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = CoreChat;
+				INFOPLIST_KEY_CFBundleDisplayName = CoreAIChat;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -268,7 +268,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.timokoethe.CoreChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timokoethe.CoreAIChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -280,7 +280,7 @@
 			};
 			name = Debug;
 		};
-		2597A75E2FD874DB00808542 /* Release configuration for PBXNativeTarget "CoreChat" */ = {
+		2597A75E2FD874DB00808542 /* Release configuration for PBXNativeTarget "CoreAIChat" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -294,7 +294,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = CoreChat;
+				INFOPLIST_KEY_CFBundleDisplayName = CoreAIChat;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -302,7 +302,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 0.1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.timokoethe.CoreChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timokoethe.CoreAIChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -317,19 +317,19 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2597A74C2FD874DA00808542 /* Build configuration list for PBXProject "CoreChat" */ = {
+		2597A74C2FD874DA00808542 /* Build configuration list for PBXProject "CoreAIChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2597A75A2FD874DB00808542 /* Debug configuration for PBXProject "CoreChat" */,
-				2597A75B2FD874DB00808542 /* Release configuration for PBXProject "CoreChat" */,
+				2597A75A2FD874DB00808542 /* Debug configuration for PBXProject "CoreAIChat" */,
+				2597A75B2FD874DB00808542 /* Release configuration for PBXProject "CoreAIChat" */,
 			);
 			defaultConfigurationName = Release;
 		};
-		2597A75C2FD874DB00808542 /* Build configuration list for PBXNativeTarget "CoreChat" */ = {
+		2597A75C2FD874DB00808542 /* Build configuration list for PBXNativeTarget "CoreAIChat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2597A75D2FD874DB00808542 /* Debug configuration for PBXNativeTarget "CoreChat" */,
-				2597A75E2FD874DB00808542 /* Release configuration for PBXNativeTarget "CoreChat" */,
+				2597A75D2FD874DB00808542 /* Debug configuration for PBXNativeTarget "CoreAIChat" */,
+				2597A75E2FD874DB00808542 /* Release configuration for PBXNativeTarget "CoreAIChat" */,
 			);
 			defaultConfigurationName = Release;
 		};

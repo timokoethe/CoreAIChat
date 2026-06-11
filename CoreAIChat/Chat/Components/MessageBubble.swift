@@ -1,6 +1,6 @@
 //
 //  MessageBubble.swift
-//  CoreChat
+//  CoreAIChat
 //
 //  Created by Timo Köthe on 09.06.26.
 //
