@@ -8,12 +8,12 @@
 import Foundation
 
 struct Message: Identifiable {
+    let id = UUID()
+    let role: Role
+    var text: String
+    
     enum Role {
         case user
         case assistant
     }
-
-    let id = UUID()
-    let role: Role
-    var text: String
 }

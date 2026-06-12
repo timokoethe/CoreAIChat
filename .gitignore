@@ -42,6 +42,11 @@ playground.xcworkspace
 ## Tools artifacts
 cpd-output.xml
 
+## Local model files
+.aimodel
+tokenizer/*
+metadata.json
+
 ## Swift Package Manager
 # Packages/
 .build/

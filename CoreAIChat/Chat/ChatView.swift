@@ -8,33 +8,41 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State private var vm = ChatViewModel()
+    @Bindable var vm: ViewModel
     
     var body: some View {
         VStack() {
             ScrollView {
-                LazyVStack(spacing: 12) {
-                    ForEach(vm.messages) { message in
-                        MessageBubble(message: message)
+                ForEach(vm.messages) { message in
+                    MessageBubble(message: message)
+                }
+                if vm.isResponding {
+                    HStack {
+                        ProgressView()
+                        Spacer()
                     }
                 }
-                .padding()
             }
             .defaultScrollAnchor(.bottom)
+            .padding(.horizontal, 5)
             
-            HStack() {
-                TextField("Message…", text: $vm.input, axis: .vertical)
-                    .textFieldStyle(.roundedBorder)
-                
-                Button("Send") {
-                }
-                .disabled(vm.isResponding || vm.input.isEmpty)
-            }
-            .padding()
+            Typebar(vm: vm)
         }
     }
 }
 
 #Preview {
-    ChatView()
+    ChatView(vm: {
+        let vm = ViewModel()
+        vm.status = .ready
+        vm.isResponding = true
+        vm.draft = "Hello Gemma!"
+        vm.messages = [
+            Message(role: .user, text: "Hello!"),
+            Message(role: .assistant, text: "How can I help you?"),
+            Message(role: .user, text: "Hello again, this is a very long message from the user to show how mutliline alignment looks like!"),
+            Message(role: .assistant, text: "That's cool! This is a long answer from the model to show how the multiline alignment looks from that side."),
+        ]
+        return vm
+    }())
 }

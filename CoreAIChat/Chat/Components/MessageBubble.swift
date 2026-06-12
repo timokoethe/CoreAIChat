@@ -18,7 +18,7 @@ struct MessageBubble: View {
                 .textSelection(.enabled)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
-                .background(message.role == .user ? .blue : .pink, in: .rect(cornerRadius: 16))
+                .background(message.role == .user ? .blue : .gray, in: .rect(cornerRadius: 16))
                 .foregroundStyle(.white)
             
             if message.role == .assistant { Spacer(minLength: 40) }
