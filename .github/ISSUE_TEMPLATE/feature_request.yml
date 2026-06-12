@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest a focused improvement to the CoreAIChat showcase.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        CoreAIChat is a minimal showcase based on beta tools and frameworks. Please keep requests focused on its demonstration purpose.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Briefly describe the desired behavior.
+    validations:
+      required: true

@@ -1,0 +1,37 @@
+name: Bug report
+description: Report a problem with the CoreAIChat showcase.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        CoreAIChat is a showcase built with beta tools and frameworks. Bugs and breaking changes are expected.
+        For security issues, follow the instructions in SECURITY.md.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Briefly describe the expected and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Include your macOS, Xcode, and model versions.
+      placeholder: macOS 27 beta, Xcode 27 beta, Gemma 3 4B
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Optional. Remove prompts, credentials, and sensitive data.
