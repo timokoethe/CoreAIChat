@@ -46,6 +46,9 @@ cpd-output.xml
 *.aimodel
 tokenizer/
 metadata.json
+!tokenizer_overrides/
+!tokenizer_overrides/tokenizer/
+!tokenizer_overrides/tokenizer/**
 
 ## Swift Package Manager
 # Packages/

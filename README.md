@@ -12,7 +12,8 @@
 
 **Beta notice:** This project currently relies on beta versions of Apple's development tools and frameworks. Many components are still under active development, so APIs, behavior, and setup instructions may change.
 
-**Known issue:** Due to a [tokenizer issue](https://github.com/apple/coreai-models/issues/25), the `<end_of_turn>` token is not reliably recognized, so the model may continue generating beyond the intended end of a response. This will definitely be fixed soon.
+**Known issue:** Due to a [tokenizer issue](https://github.com/apple/coreai-models/issues/25), the `<end_of_turn>` token is not reliably recognized when using the Gemma 3 model as shown in this example.
+As a result, it may continue generating beyond the intended end of a response. Follow [Replace the generated tokenizer](#replace-the-generated-tokenizer) to apply the included workaround.
 
 ## Setup
 
@@ -33,9 +34,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 Clone Apple's [`coreai-models`](https://github.com/apple/coreai-models/tree/main) repository and verify the installation:
 
 ```bash
-git clone https://github.com/apple/coreai-models.git
-cd coreai-models
-uv run coreai.model.registry --list-models
+git clone https://github.com/apple/coreai-models.git && cd coreai-models
 ```
 
 Before exporting [Gemma 3](https://huggingface.co/google/gemma-3-4b-it), accept its [license terms](https://huggingface.co/google/gemma-3-4b-it) on Hugging Face and create an access token. Then authenticate the Hugging Face CLI:
@@ -53,6 +52,8 @@ From the `coreai-models` directory, run:
 uv run coreai.llm.export google/gemma-3-4b-it
 ```
 
+This process may take a few minutes to complete, as the model may need to be downloaded first before it can be converted and exported to the Core AI format.
+
 The exported model is written to `./exports/gemma_3_4b_it_4bit_dynamic`. This directory should contain the `.aimodel` package, `metadata.json`, and a `tokenizer` directory.
 
 ### Add the model to Xcode
@@ -68,9 +69,41 @@ gemma_3_4b_it_4bit_dynamic/
 └── tokenizer/
 ```
 
+### Replace the generated tokenizer
+
+The tokenizer generated for the Gemma 3 example may not reliably recognize the `<end_of_turn>` token. This repository includes a corrected tokenizer in `tokenizer_overrides/tokenizer`.
+
+After copying the exported model into the repository, replace its generated `tokenizer` directory from the repository root:
+
+```bash
+rm -rf gemma_3_4b_it_4bit_dynamic/tokenizer
+cp -R tokenizer_overrides/tokenizer gemma_3_4b_it_4bit_dynamic/tokenizer
+```
+
+The corrected tokenizer remains tracked in `tokenizer_overrides`, while the copy inside `gemma_3_4b_it_4bit_dynamic` is ignored as part of the local model files.
+
 ### Run the app
 
 Select the `CoreAIChat` scheme in Xcode and run the app. Loading the model may take a short while, especially on the first launch.
+
+## Run a Core AI Language Model
+
+The following example shows how to load an exported Core AI language model, create a session, and generate a response using the Foundation Models framework.
+
+```swift
+import FoundationModels
+import CoreAILanguageModels
+
+let modelUrl: URL? = Bundle.main.url(forResource: "gemma_3_4b_it_4bit_dynamic", withExtension: nil)
+
+let model = try await CoreAILanguageModel(resourcesAt: modelURL!)
+
+let session = LanguageModelSession(model: model)
+
+let response = try await session.respond(to: "Hello")
+
+print(response)
+```
 
 ## License
 
