@@ -43,8 +43,8 @@ playground.xcworkspace
 cpd-output.xml
 
 ## Local model files
-.aimodel
-tokenizer/*
+*.aimodel
+tokenizer/
 metadata.json
 
 ## Swift Package Manager
