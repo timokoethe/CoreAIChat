@@ -11,23 +11,31 @@ struct ChatView: View {
     @Bindable var vm: ViewModel
     
     var body: some View {
-        VStack() {
+        VStack {
             ScrollView {
-                ForEach(vm.messages) { message in
-                    MessageBubble(message: message)
-                }
-                if vm.isResponding {
-                    HStack {
-                        ProgressView()
-                        Spacer()
+                LazyVStack(spacing: 8) {
+                    ForEach(vm.messages) { message in
+                        MessageBubble(message: message)
+                    }
+                    
+                    if vm.isResponding {
+                        HStack {
+                            ProgressView()
+                            Spacer()
+                        }
                     }
                 }
+                .padding(.horizontal, 5)
+                .frame(maxWidth: 700)
+                .frame(maxWidth: .infinity)
             }
+            .frame(maxWidth: .infinity)
+            .scrollBounceBehavior(.basedOnSize)
             .defaultScrollAnchor(.bottom)
-            .padding(.horizontal, 5)
-            
+
             Typebar(vm: vm)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

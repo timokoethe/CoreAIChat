@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		25053A1B2FDB367C00BE6A46 /* CoreAILM in Frameworks */ = {isa = PBXBuildFile; productRef = 25053A1A2FDB367C00BE6A46 /* CoreAILM */; };
+		25538FA02FDC63CE00BD3A07 /* Icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 25538F9F2FDC63CE00BD3A07 /* Icon.icon */; };
 		25F558A92FDC15D80024FCB3 /* gemma_3_4b_it_4bit_dynamic in Resources */ = {isa = PBXBuildFile; fileRef = 25F558A82FDC15D50024FCB3 /* gemma_3_4b_it_4bit_dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25538F9F2FDC63CE00BD3A07 /* Icon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Icon.icon; sourceTree = "<group>"; };
 		2597A7512FD874DA00808542 /* CoreAIChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreAIChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F558A82FDC15D50024FCB3 /* gemma_3_4b_it_4bit_dynamic */ = {isa = PBXFileReference; lastKnownFileType = folder; path = gemma_3_4b_it_4bit_dynamic; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -37,6 +39,7 @@
 		2597A7482FD874DA00808542 = {
 			isa = PBXGroup;
 			children = (
+				25538F9F2FDC63CE00BD3A07 /* Icon.icon */,
 				25F558A82FDC15D50024FCB3 /* gemma_3_4b_it_4bit_dynamic */,
 				253BD8242FD87EF700075C4E /* CoreAIChat */,
 				2597A7522FD874DA00808542 /* Products */,
@@ -116,6 +119,7 @@
 		2597A74F2FD874DA00808542 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				25538FA02FDC63CE00BD3A07 /* Icon.icon in Resources */,
 				25F558A92FDC15D80024FCB3 /* gemma_3_4b_it_4bit_dynamic in Resources */,
 			);
 		};
@@ -253,8 +257,9 @@
 		2597A75D2FD874DB00808542 /* Debug configuration for PBXNativeTarget "CoreAIChat" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Icon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -264,7 +269,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = CoreAIChat;
+				INFOPLIST_KEY_CFBundleDisplayName = "CoreAI Chat";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -287,8 +292,9 @@
 		2597A75E2FD874DB00808542 /* Release configuration for PBXNativeTarget "CoreAIChat" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = Icon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -298,7 +304,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = CoreAIChat;
+				INFOPLIST_KEY_CFBundleDisplayName = "CoreAI Chat";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -9,6 +9,11 @@ import SwiftUI
 
 struct Typebar: View {
     @Bindable var vm: ViewModel
+
+    private var canSend: Bool {
+        !vm.isResponding && !vm.draft.isEmpty
+    }
+
     var body: some View {
         HStack {
             TextField("Type here ...", text: $vm.draft)
@@ -16,22 +21,36 @@ struct Typebar: View {
                 .textFieldStyle(.plain)
                 .padding(8)
                 .glassEffect()
+                .onSubmit {
+                    guard canSend else { return }
+                    Task {
+                        await vm.getResponse()
+                    }
+                }
 
             Button(role: .confirm) {
                 Task {
                     await vm.getResponse()
                 }
             } label: {
-                Image(systemName: "paperplane.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 20)
-                    .padding(.vertical, 2)
+                ZStack {
+                    Color.clear
+
+                    Image(systemName: "paperplane.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 17, height: 17)
+                }
+                .frame(width: 32, height: 32)
+                .contentShape(.circle)
+                .glassEffect(in: .circle)
             }
-            .foregroundStyle(vm.draft.isEmpty ? .gray : .blue)
-            .disabled(vm.isResponding || vm.draft.isEmpty)
+            .buttonStyle(.plain)
+            .foregroundStyle(canSend ? Color.accentColor : Color.secondary)
+            .allowsHitTesting(canSend)
         }
         .padding(6)
+        .frame(maxWidth: 700)
     }
 }
 
