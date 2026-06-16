@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25053A1B2FDB367C00BE6A46 /* CoreAILM in Frameworks */ = {isa = PBXBuildFile; productRef = 25053A1A2FDB367C00BE6A46 /* CoreAILM */; };
+		250EFA772FE19D2B00C6C26F /* CoreAILM in Frameworks */ = {isa = PBXBuildFile; productRef = 250EFA762FE19D2B00C6C26F /* CoreAILM */; };
 		25538FA02FDC63CE00BD3A07 /* Icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 25538F9F2FDC63CE00BD3A07 /* Icon.icon */; };
 		25F558A92FDC15D80024FCB3 /* gemma_3_4b_it_4bit_dynamic in Resources */ = {isa = PBXBuildFile; fileRef = 25F558A82FDC15D50024FCB3 /* gemma_3_4b_it_4bit_dynamic */; };
 /* End PBXBuildFile section */
@@ -30,7 +30,7 @@
 		2597A74E2FD874DA00808542 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
-				25053A1B2FDB367C00BE6A46 /* CoreAILM in Frameworks */,
+				250EFA772FE19D2B00C6C26F /* CoreAILM in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 			);
 			name = CoreAIChat;
 			packageProductDependencies = (
-				25053A1A2FDB367C00BE6A46 /* CoreAILM */,
+				250EFA762FE19D2B00C6C26F /* CoreAILM */,
 			);
 			productName = CoreAIChat;
 			productReference = 2597A7512FD874DA00808542 /* CoreAIChat.app */;
@@ -103,7 +103,7 @@
 			mainGroup = 2597A7482FD874DA00808542;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				25053A192FDB367C00BE6A46 /* XCRemoteSwiftPackageReference "coreai-models" */,
+				250EFA752FE19D2B00C6C26F /* XCRemoteSwiftPackageReference "coreai-models" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2597A7522FD874DA00808542 /* Products */;
@@ -346,20 +346,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		25053A192FDB367C00BE6A46 /* XCRemoteSwiftPackageReference "coreai-models" */ = {
+		250EFA752FE19D2B00C6C26F /* XCRemoteSwiftPackageReference "coreai-models" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/coreai-models.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		25053A1A2FDB367C00BE6A46 /* CoreAILM */ = {
+		250EFA762FE19D2B00C6C26F /* CoreAILM */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 25053A192FDB367C00BE6A46 /* XCRemoteSwiftPackageReference "coreai-models" */;
+			package = 250EFA752FE19D2B00C6C26F /* XCRemoteSwiftPackageReference "coreai-models" */;
 			productName = CoreAILM;
 		};
 /* End XCSwiftPackageProductDependency section */

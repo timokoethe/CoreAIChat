@@ -12,9 +12,6 @@
 
 **Beta notice:** This project currently relies on beta versions of Apple's development tools and frameworks. Many components are still under active development, so APIs, behavior, and setup instructions may change.
 
-**Known issue:** Due to a [tokenizer issue](https://github.com/apple/coreai-models/issues/25), the `<end_of_turn>` token is not reliably recognized when using the Gemma 3 model as shown in this example.
-As a result, it may continue generating beyond the intended end of a response. Follow [Replace the generated tokenizer](#replace-the-generated-tokenizer) to apply the included workaround.
-
 ## Setup
 
 ### Prepare the export tools
@@ -68,19 +65,6 @@ gemma_3_4b_it_4bit_dynamic/
 ├── metadata.json
 └── tokenizer/
 ```
-
-### Replace the generated tokenizer
-
-The tokenizer generated for the Gemma 3 example may not reliably recognize the `<end_of_turn>` token. This repository includes a corrected tokenizer in `tokenizer_overrides/tokenizer`.
-
-After copying the exported model into the repository, replace its generated `tokenizer` directory from the repository root:
-
-```bash
-rm -rf gemma_3_4b_it_4bit_dynamic/tokenizer
-cp -R tokenizer_overrides/tokenizer gemma_3_4b_it_4bit_dynamic/tokenizer
-```
-
-The corrected tokenizer remains tracked in `tokenizer_overrides`, while the copy inside `gemma_3_4b_it_4bit_dynamic` is ignored as part of the local model files.
 
 ### Run the app
 
