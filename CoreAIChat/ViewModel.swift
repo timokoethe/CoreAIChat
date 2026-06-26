@@ -46,13 +46,18 @@ final class ViewModel {
     }
     
     func getResponse() async {
+        guard let session else {
+            status = .failed(URLError(.badServerResponse))
+            return
+        }
+
         isResponding = true
         
         messages.append(Message(role: .user, text: draft))
         prompt = draft
         draft = ""
         do {
-            let response = try await session!.respond(to: prompt)
+            let response = try await session.respond(to: prompt)
             let message = Message(role: .assistant, text: response.content)
             messages.append(message)
         } catch {
