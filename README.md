@@ -28,7 +28,7 @@ Alternatively, use the official installation script:
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Clone Apple's [`coreai-models`](https://github.com/apple/coreai-models/tree/main) repository and verify the installation:
+Clone Apple's [`coreai-models`](https://github.com/apple/coreai-models/tree/main) repository:
 
 ```bash
 git clone https://github.com/apple/coreai-models.git && cd coreai-models
@@ -75,20 +75,28 @@ Select the `CoreAIChat` scheme in Xcode and run the app. Loading the model may t
 The following example shows how to load an exported Core AI language model, create a session, and generate a response using the Foundation Models framework.
 
 ```swift
+import Foundation
 import FoundationModels
 import CoreAILanguageModels
 
-let modelUrl: URL? = Bundle.main.url(forResource: "gemma_3_4b_it_4bit_dynamic", withExtension: nil)
+func respond(to prompt: String) async throws -> String {
+    guard let modelURL = Bundle.main.url(
+        forResource: "gemma_3_4b_it_4bit_dynamic",
+        withExtension: nil
+    ) else {
+        throw URLError(.fileDoesNotExist)
+    }
 
-let model = try await CoreAILanguageModel(resourcesAt: modelURL!)
+    let model = try await CoreAILanguageModel(resourcesAt: modelURL)
+    let session = LanguageModelSession(model: model)
+    let response = try await session.respond(to: prompt)
 
-let session = LanguageModelSession(model: model)
+    return response.content
+}
 
-let response = try await session.respond(to: "Hello")
-
-print(response)
+print(try await respond(to: "Hello"))
 ```
 
 ## License
 
-Localight is available under the MIT License. See [LICENSE](LICENSE) for the full license text.
+CoreAIChat is available under the MIT License. See [LICENSE](LICENSE) for the full license text.
