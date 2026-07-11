@@ -11,7 +11,8 @@ struct Typebar: View {
     @Bindable var vm: ViewModel
 
     private var canSend: Bool {
-        !vm.isResponding && !vm.draft.isEmpty
+        !vm.isResponding
+            && !vm.draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
     var body: some View {
