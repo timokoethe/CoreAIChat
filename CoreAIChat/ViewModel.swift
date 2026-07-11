@@ -46,15 +46,22 @@ final class ViewModel {
     }
     
     func getResponse() async {
+        let submittedPrompt = draft.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        guard !isResponding, !submittedPrompt.isEmpty else {
+            return
+        }
+
         guard let session else {
             status = .failed(URLError(.badServerResponse))
             return
         }
 
         isResponding = true
+        defer { isResponding = false }
         
-        messages.append(Message(role: .user, text: draft))
-        prompt = draft
+        messages.append(Message(role: .user, text: submittedPrompt))
+        prompt = submittedPrompt
         draft = ""
         do {
             let response = try await session.respond(to: prompt)
@@ -64,8 +71,6 @@ final class ViewModel {
             let message = Message(role: .assistant, text: error.localizedDescription)
             messages.append(message)
         }
-        
-        isResponding = false
     }
 }
 
