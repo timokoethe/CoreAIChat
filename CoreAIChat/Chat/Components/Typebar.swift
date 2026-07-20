@@ -48,7 +48,7 @@ struct Typebar: View {
             }
             .buttonStyle(.plain)
             .foregroundStyle(canSend ? Color.accentColor : Color.secondary)
-            .allowsHitTesting(canSend)
+            .disabled(!canSend)
         }
         .padding(6)
         .frame(maxWidth: 700)
