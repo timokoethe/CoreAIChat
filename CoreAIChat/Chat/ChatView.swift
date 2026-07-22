@@ -44,7 +44,7 @@ struct ChatView: View {
         let vm = ViewModel()
         vm.status = .ready
         vm.isResponding = true
-        vm.draft = "Hello Gemma!"
+        vm.draft = "Hello!"
         vm.messages = [
             Message(role: .user, text: "Hello!"),
             Message(role: .assistant, text: "How can I help you?"),
