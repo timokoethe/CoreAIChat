@@ -97,6 +97,10 @@ func respond(to prompt: String) async throws -> String {
 print(try await respond(to: "Hello"))
 ```
 
+## Feature Documentation
+
+Feature specifications live in [`docs/features`](docs/features), with one Markdown file per feature. Use [`docs/features/_template.md`](docs/features/_template.md) as the starting point for new specifications.
+
 ## License
 
 CoreAIChat is available under the MIT License. See [LICENSE](LICENSE) for the full license text.
