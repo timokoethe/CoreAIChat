@@ -17,6 +17,8 @@ CoreAIChat is a minimal macOS SwiftUI demo for running a local language model wi
 - Prefer registered model presets and their model-specific recipes. Use experimental exports or custom compression settings only when explicitly required, and document those deviations in `README.md`.
 - Never add secrets, Hugging Face tokens, build artifacts, or user-specific Xcode data.
 - Update `README.md` when setup or user-facing behavior changes.
+- Keep feature specifications in `docs/features/`, with one Markdown file per feature.
+- Use `docs/features/_template.md` when adding a feature specification, and keep its purpose, user story, and acceptance criteria aligned with the implemented behavior.
 
 ## Validation
 
