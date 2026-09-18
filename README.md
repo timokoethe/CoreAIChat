@@ -17,8 +17,8 @@
   <a href="https://opensource.org/license/mit"><img src="https://img.shields.io/badge/license-MIT-E87524" alt="MIT license"></a>
   <img src="https://img.shields.io/badge/type-showcase-E87524" alt="Showcase project">
   <img src="https://img.shields.io/badge/UI-SwiftUI-E87524" alt="SwiftUI">
-  <img src="https://img.shields.io/badge/platform-macOS%2027%20beta-E87524" alt="macOS 27 beta">
-  <img src="https://img.shields.io/badge/Xcode-27%20beta-E87524" alt="Xcode 27 beta">
+  <img src="https://img.shields.io/badge/platform-macOS%2027-E87524" alt="macOS 27">
+  <img src="https://img.shields.io/badge/Xcode-27-E87524" alt="Xcode 27">
 </p>
 
 ## At a Glance
@@ -60,9 +60,8 @@ including [model loading](docs/features/model-loading.md),
 > learning, experimentation, and demonstrating Apple Core AI integration. It is
 > not production-ready and is not distributed through the App Store.
 
-The project targets beta versions of macOS 27, Xcode 27, and Apple's Core AI
-tooling. APIs, runtime behavior, model compatibility, and setup steps may change.
-Generated output may be inaccurate, incomplete, or misleading.
+Generated output may be inaccurate, incomplete, or misleading. Model
+compatibility and setup requirements can vary between `coreai-models` releases.
 
 ## Technology
 
@@ -73,11 +72,11 @@ Generated output may be inaccurate, incomplete, or misleading.
 | Local model runtime | `CoreAILanguageModels` from `coreai-models` |
 | Concurrency | Swift async/await |
 | Example model | Gemma 3 4B IT |
-| Platform | macOS 27 beta |
+| Platform | macOS 27 |
 
 ## Getting Started
 
-You need macOS 27 beta and the matching Xcode 27 beta. Model export can require
+You need macOS 27 and Xcode 27. Model export can require
 substantial disk space and memory; requirements vary by model.
 
 ### 1. Prepare the export tools
@@ -160,10 +159,10 @@ Select the `CoreAIChat` scheme in Xcode and run it. Choose **Load Model**, wait
 for the local model to load and prewarm, then start a conversation. The first
 load can take a little longer.
 
-For a signing-independent compile check, use the matching Xcode beta:
+For a signing-independent compile check, use Xcode 27:
 
 ```sh
-DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer \
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
 xcodebuild -project CoreAIChat.xcodeproj \
   -scheme CoreAIChat \
   -sdk macosx \
