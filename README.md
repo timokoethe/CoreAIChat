@@ -155,6 +155,17 @@ Exported model files are intentionally not committed to this repository.
 
 ### 4. Run the showcase
 
+For a signed local build, create your personal build configuration once:
+
+```sh
+cp Config/Local.xcconfig.example Config/Local.xcconfig
+```
+
+Then replace `YOUR_TEAM_ID` and the example bundle identifier in
+`Config/Local.xcconfig`. The local file is ignored by Git, so developer-specific
+signing values do not end up in `project.pbxproj`. Unsigned command-line builds
+do not require this file.
+
 Select the `CoreAIChat` scheme in Xcode and run it. Choose **Load Model**, wait
 for the local model to load and prewarm, then start a conversation. The first
 load can take a little longer.
@@ -204,6 +215,7 @@ func respond(to prompt: String) async throws -> String {
 CoreAIChat/
 ├── CoreAIChat/                       SwiftUI app source
 ├── CoreAIChat.xcodeproj/             Xcode project and package resolution
+├── Config/                           Shared and local build settings
 ├── docs/features/                    Feature behavior and acceptance criteria
 ├── docs/assets/                      README assets
 ├── gemma_3_4b_it_4bit_dynamic/       Untracked model-resource placeholder

@@ -4,6 +4,7 @@
 ## Local environment
 .env
 .env.*
+Config/Local.xcconfig
 
 ## Xcode workspace
 *.xcworkspace

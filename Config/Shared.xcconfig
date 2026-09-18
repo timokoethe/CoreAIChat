@@ -1,0 +1,9 @@
+// Defaults that keep unsigned builds portable across machines.
+COREAICHAT_DEVELOPMENT_TEAM =
+COREAICHAT_BUNDLE_IDENTIFIER = com.example.CoreAIChat
+
+// Optional per-developer overrides. This file is intentionally not committed.
+#include? "Local.xcconfig"
+
+DEVELOPMENT_TEAM = $(COREAICHAT_DEVELOPMENT_TEAM)
+PRODUCT_BUNDLE_IDENTIFIER = $(COREAICHAT_BUNDLE_IDENTIFIER)
