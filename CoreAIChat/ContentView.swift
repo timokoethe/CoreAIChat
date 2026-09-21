@@ -18,10 +18,8 @@ struct ContentView: View {
             case .loading:
                 ProgressView("Loading Model...")
             case .unloaded:
-                Button("Load Model") {
-                    Task {
-                        await vm.loadSession()
-                    }
+                ModelSetupView {
+                    await vm.loadSession()
                 }
             case .ready:
                 ChatView(vm: vm)
