@@ -1,10 +1,10 @@
 ## Summary
 
-Briefly describe the change.
+<!-- Briefly describe the change. -->
 
 ## Testing
 
-Describe how the change was tested.
+<!-- Describe how the change was tested. -->
 
 ## Checklist
 
