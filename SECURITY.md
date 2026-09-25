@@ -1,6 +1,6 @@
 # Security Policy
 
-CoreAIChat is a showcase app and is not intended for production use. It relies on beta versions of Apple tools and frameworks, which may contain bugs, security issues, or breaking changes.
+CoreAIChat is a showcase app and is not intended for production use. Apple Core AI, Foundation Models, and compatible model exports may change between releases and may contain bugs or security issues.
 
 Do not use the app with sensitive, confidential, or production data.
 

@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        CoreAIChat is a minimal showcase based on beta tools and frameworks. Please keep requests focused on its demonstration purpose.
+        CoreAIChat is a minimal showcase. Please keep requests focused on its demonstration purpose.
   - type: textarea
     id: problem
     attributes:

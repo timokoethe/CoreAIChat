@@ -20,4 +20,4 @@ As a user, I want to see what went wrong so that I can fix the setup or retry.
 - A failed model load replaces the whole view with a `ContentUnavailableView` showing the error description.
 - A failed generation is shown as an assistant bubble containing the error description; the conversation stays usable.
 - The app never crashes on a missing model resource or an unavailable session.
-- Error text reflects macOS 27 beta limitations of the local runtime, not a remote service.
+- Error text reflects limitations of the local runtime on macOS 27, not a remote service.
