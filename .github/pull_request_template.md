@@ -9,4 +9,4 @@
 ## Checklist
 
 - [ ] The change stays focused on the purpose of this showcase.
-- [ ] I considered the use of beta tools and frameworks.
+- [ ] I considered platform, runtime, and model-resource compatibility.

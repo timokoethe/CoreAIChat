@@ -2,7 +2,7 @@
 
 ## Project
 
-CoreAIChat is a minimal macOS SwiftUI demo for running a local language model with Apple Core AI and Foundation Models. It targets macOS 27 beta and requires the matching Xcode beta. The app is not tied to Gemma 3: any compatible language model supported by Apple's [`coreai-models`](https://github.com/apple/coreai-models) repository may be used. The included `gemma_3_4b_it_4bit_dynamic/` directory is only an example.
+CoreAIChat is a minimal macOS SwiftUI demo for running a local language model with Apple Core AI and Foundation Models. It targets macOS 27 and requires Xcode 27. The app is not tied to Gemma 3: any compatible language model supported by Apple's [`coreai-models`](https://github.com/apple/coreai-models) repository may be used. The included `gemma_3_4b_it_4bit_dynamic/` directory is only an example.
 
 ## Guidelines
 
@@ -22,10 +22,10 @@ CoreAIChat is a minimal macOS SwiftUI demo for running a local language model wi
 
 ## Validation
 
-Build the `CoreAIChat` scheme with the Xcode beta selected:
+Build the `CoreAIChat` scheme with Xcode 27 selected:
 
 ```bash
-DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer \
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
 xcodebuild -project CoreAIChat.xcodeproj \
   -scheme CoreAIChat \
   -sdk macosx \
