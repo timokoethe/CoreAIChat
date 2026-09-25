@@ -5,12 +5,12 @@
 <h1 align="center">CoreAIChat</h1>
 
 <p align="center">
-  <strong>Explore local language models with Apple Core AI.</strong>
+  <strong>Run your own exported language model with Apple Core AI.</strong>
 </p>
 
 <p align="center">
-  A minimal macOS showcase for building an on-device AI chat experience with
-  SwiftUI, Core AI, and Foundation Models.
+  A minimal macOS reference app for bundling a compatible model, loading it
+  with Core AI, and chatting with it entirely on device.
 </p>
 
 <p align="center">
@@ -23,10 +23,11 @@
 
 ## At a Glance
 
-CoreAIChat demonstrates the shortest path from an exported model bundle to a
-native, local chat experience on macOS. Load the bundled model, submit a prompt,
-and receive a response through Apple's Foundation Models APIs—all without a
-remote inference service.
+CoreAIChat demonstrates the shortest path from a model exported with Apple's
+`coreai-models` tooling to a native, local chat experience on macOS. It focuses
+on the parts that are specific to bringing your own model: preserving the
+exported resource bundle, loading it through `CoreAILanguageModels`, and using
+it with the Foundation Models conversation APIs.
 
 The project is model-agnostic. The included
 `gemma_3_4b_it_4bit_dynamic` resource is an example; any compatible language
