@@ -11,29 +11,41 @@ struct ErrorView: View {
     let title: String
     let description: String?
     let icon: String
+    let retry: (() -> Void)?
     
-    init(title: String, description: String?, icon: String) {
+    init(
+        title: String,
+        description: String? = nil,
+        icon: String,
+        retry: (() -> Void)? = nil
+    ) {
         self.title = title
         self.description = description
         self.icon = icon
-    }
-    
-    init(title: String, icon: String) {
-        self.title = title
-        self.description = nil
-        self.icon = icon
+        self.retry = retry
     }
     
     var body: some View {
-        if let description = description {
-            ContentUnavailableView(title, systemImage: icon, description: Text(description))
-        } else {
-            ContentUnavailableView(title, systemImage: icon)
+        ContentUnavailableView {
+            Label(title, systemImage: icon)
+        } description: {
+            if let description {
+                Text(description)
+            }
+        } actions: {
+            if let retry {
+                Button("Try Again", action: retry)
+                    .buttonStyle(.borderedProminent)
+            }
         }
-
     }
 }
 
 #Preview {
-    ErrorView(title: "Example Title", description: "Example Description", icon: "nosign")
+    ErrorView(
+        title: "Example Title",
+        description: "Example Description",
+        icon: "nosign",
+        retry: {}
+    )
 }

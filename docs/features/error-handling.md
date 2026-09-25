@@ -17,7 +17,8 @@ As a user, I want to see what went wrong so that I can fix the setup or retry.
 
 ## Acceptance Criteria
 
-- A failed model load replaces the whole view with a `ContentUnavailableView` showing the error description.
+- A failed model load replaces the whole view with a `ContentUnavailableView` showing the error description and a `Try Again` button.
+- Selecting `Try Again` starts a new model-loading attempt and shows loading progress while it runs.
 - A failed generation is shown as an assistant bubble containing the error description; the conversation stays usable.
 - The app never crashes on a missing model resource or an unavailable session.
 - Error text reflects limitations of the local runtime on macOS 27, not a remote service.
