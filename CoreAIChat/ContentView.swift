@@ -14,7 +14,16 @@ struct ContentView: View {
         VStack {
             switch vm.status {
             case .failed(let error):
-                ErrorView(title: "Error", description: error.localizedDescription, icon: "nosign")
+                ErrorView(
+                    title: "Error",
+                    description: error.localizedDescription,
+                    icon: "nosign",
+                    retry: {
+                        Task {
+                            await vm.loadSession()
+                        }
+                    }
+                )
             case .loading:
                 ProgressView("Loading Model...")
             case .unloaded:
