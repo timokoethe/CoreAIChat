@@ -9,29 +9,41 @@ import SwiftUI
 
 struct ChatView: View {
     @Bindable var vm: ViewModel
-    
+    private let bottomID = "chat-bottom"
+
     var body: some View {
         VStack {
-            ScrollView {
-                LazyVStack(spacing: 8) {
-                    ForEach(vm.messages) { message in
-                        MessageBubble(message: message)
-                    }
-                    
-                    if vm.isResponding {
-                        HStack {
-                            ProgressView()
-                            Spacer()
+            ScrollViewReader { proxy in
+                ScrollView {
+                    LazyVStack(spacing: 8) {
+                        ForEach(vm.messages) { message in
+                            MessageBubble(message: message)
                         }
+
+                        if vm.isResponding {
+                            HStack {
+                                ProgressView()
+                                Spacer()
+                            }
+                        }
+
+                        Color.clear
+                            .frame(height: 1)
+                            .id(bottomID)
+                    }
+                    .padding(.horizontal, 5)
+                    .frame(maxWidth: 700)
+                    .frame(maxWidth: .infinity)
+                }
+                .frame(maxWidth: .infinity)
+                .scrollBounceBehavior(.basedOnSize)
+                .defaultScrollAnchor(.bottom)
+                .onChange(of: vm.messages.count) {
+                    withAnimation {
+                        proxy.scrollTo(bottomID, anchor: .bottom)
                     }
                 }
-                .padding(.horizontal, 5)
-                .frame(maxWidth: 700)
-                .frame(maxWidth: .infinity)
             }
-            .frame(maxWidth: .infinity)
-            .scrollBounceBehavior(.basedOnSize)
-            .defaultScrollAnchor(.bottom)
 
             Typebar(vm: vm)
         }
