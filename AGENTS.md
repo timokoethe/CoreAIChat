@@ -2,14 +2,14 @@
 
 ## Project
 
-CoreAIChat is a minimal macOS SwiftUI demo for running a local language model with Apple Core AI and Foundation Models. It targets macOS 27 and requires Xcode 27. The app is not tied to Gemma 3: any compatible language model supported by Apple's [`coreai-models`](https://github.com/apple/coreai-models) repository may be used. The included `gemma_3_4b_it_4bit_dynamic/` directory is only an example.
+CoreAIChat is a minimal macOS SwiftUI demo for running a local language model with Apple Core AI and Foundation Models. It targets macOS 27 and requires Xcode 27. The app is not tied to Gemma 3: any compatible language model supported by Apple's [`coreai-models`](https://github.com/apple/coreai-models) repository may be used. The included `model/` directory is a generic resource placeholder; Gemma 3 is only an example in the README.
 
 ## Guidelines
 
 - Keep changes small, focused, and consistent with the existing SwiftUI structure.
 - Prefer native Swift and SwiftUI APIs; avoid new dependencies unless necessary.
 - Preserve async/await usage and keep UI state updates on the main actor.
-- Treat model directories such as the included `gemma_3_4b_it_4bit_dynamic/` example as generated assets; do not modify or commit their generated contents.
+- Treat generated contents inside the included `model/` resource placeholder as generated assets; do not modify or commit them.
 - Treat Apple's `coreai-models` repository as the source of truth for supported model presets, export commands, exported resource layouts, and `CoreAILanguageModels` runtime APIs.
 - For existing behavior, consult `coreai-models` at the revision recorded in `Package.resolved`; compare it with upstream `main` only when intentionally evaluating an update.
 - `coreai-models` supplies both the model export tooling and the `CoreAILM` Swift package used by this app. Keep exported resource bundles and the Swift runtime compatible, and preserve the complete exported resource directory rather than copying only the `.aimodel`.

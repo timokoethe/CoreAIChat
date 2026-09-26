@@ -29,10 +29,10 @@ on the parts that are specific to bringing your own model: preserving the
 exported resource bundle, loading it through `CoreAILanguageModels`, and using
 it with the Foundation Models conversation APIs.
 
-The project is model-agnostic. The included
-`gemma_3_4b_it_4bit_dynamic` resource is an example; any compatible language
-model supported by Apple's [`coreai-models`](https://github.com/apple/coreai-models)
-repository can take its place.
+The project is model-agnostic. The included `model/` directory is a generic
+resource placeholder; it can contain any compatible language model supported
+by Apple's [`coreai-models`](https://github.com/apple/coreai-models) repository.
+Gemma 3 is used below only as an export example.
 
 ## Highlights
 
@@ -41,7 +41,7 @@ repository can take its place.
 - **Use native frameworks:** Combine SwiftUI, Foundation Models, and
   `CoreAILanguageModels` in a compact reference implementation.
 - **Swap compatible models:** Follow a model-specific `coreai-models` recipe,
-  then replace the example resource and its name in the app.
+  then replace the contents of the generic `model/` resource directory.
 - **Keep the interface responsive:** Model loading and response generation use
   Swift concurrency.
 - **See the complete chat flow:** The showcase covers loading, prewarming,
@@ -142,15 +142,18 @@ Open the project:
 open CoreAIChat.xcodeproj
 ```
 
-Add the **complete exported resource directory** to the CoreAIChat app target.
-The repository includes an empty `gemma_3_4b_it_4bit_dynamic/` placeholder that
-is already referenced by the project and `ViewModel.swift`.
+Copy the **complete contents of the exported resource directory** into the
+empty `model/` placeholder. This generic directory is already included in the
+CoreAIChat app target and referenced by `ViewModel.swift`.
 
 When using another compatible model:
 
-1. Replace the example resource directory in the app target.
-2. Update the resource name in `CoreAIChat/ViewModel.swift`.
+1. Remove the previous generated contents from `model/`.
+2. Copy all contents of the newly exported resource directory into `model/`.
 3. Keep the `.aimodel`, `metadata.json`, and `tokenizer/` resources together.
+
+The exported directory name does not need to match `model`; the model identity
+and asset paths are read from its `metadata.json`.
 
 Exported model files are intentionally not committed to this repository.
 
@@ -185,9 +188,9 @@ xcodebuild -project CoreAIChat.xcodeproj \
 
 ## Minimal Core AI Example
 
-The central integration is deliberately small. This example uses the included
-Gemma 3 resource name; substitute your exported directory name when using a
-different compatible model.
+The central integration is deliberately small. The stable `model` resource
+name points to whichever compatible exported model is currently placed in the
+generic resource directory.
 
 ```swift
 import Foundation
@@ -196,7 +199,7 @@ import CoreAILanguageModels
 
 func respond(to prompt: String) async throws -> String {
     guard let modelURL = Bundle.main.url(
-        forResource: "gemma_3_4b_it_4bit_dynamic",
+        forResource: "model",
         withExtension: nil
     ) else {
         throw URLError(.fileDoesNotExist)
@@ -219,7 +222,7 @@ CoreAIChat/
 ├── Config/                           Shared and local build settings
 ├── docs/features/                    Feature behavior and acceptance criteria
 ├── docs/assets/                      README assets
-├── gemma_3_4b_it_4bit_dynamic/       Untracked model-resource placeholder
+├── model/                            Generic untracked model-resource placeholder
 └── Icon.icon/                        App icon source
 ```
 

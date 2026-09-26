@@ -14,7 +14,7 @@ import CoreAILanguageModels
 @Observable
 final class ViewModel {
     private var session: LanguageModelSession?
-    private let modelUrl: URL? = Bundle.main.url(forResource: "gemma_3_4b_it_4bit_dynamic", withExtension: nil)
+    private let modelUrl: URL? = Bundle.main.url(forResource: "model", withExtension: nil)
     
     var status: ModelState = .unloaded
     
