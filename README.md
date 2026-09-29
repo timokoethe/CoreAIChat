@@ -64,17 +64,6 @@ including [model loading](docs/features/model-loading.md),
 Generated output may be inaccurate, incomplete, or misleading. Model
 compatibility and setup requirements can vary between `coreai-models` releases.
 
-## Technology
-
-| Area | Implementation |
-| --- | --- |
-| Interface | SwiftUI |
-| Conversation API | Foundation Models |
-| Local model runtime | `CoreAILanguageModels` from `coreai-models` |
-| Concurrency | Swift async/await |
-| Example model | Gemma 3 4B IT |
-| Platform | macOS 27 |
-
 ## Getting Started
 
 You need macOS 27 and Xcode 27. Model export can require
