@@ -163,6 +163,9 @@ Select the `CoreAIChat` scheme in Xcode and run it. Choose **Load Model**, wait
 for the local model to load and prewarm, then start a conversation. The first
 load can take a little longer.
 
+The chat opens only after the model engine has loaded successfully. If loading
+fails, the app shows the error with a **Try Again** button.
+
 For a signing-independent compile check, use Xcode 27:
 
 ```sh
