@@ -34,8 +34,10 @@ final class ViewModel {
 
         do {
             let model = try await CoreAILanguageModel(resourcesAt: modelUrl)
-            self.session = LanguageModelSession(model: model)
-            self.session!.prewarm()
+            try await model.load()
+            let session = LanguageModelSession(model: model)
+            session.prewarm()
+            self.session = session
         } catch {
             print(error.localizedDescription)
             self.status = .failed(error)
