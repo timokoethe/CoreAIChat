@@ -22,13 +22,23 @@ final class ViewModel {
     var prompt: String = ""
     var isResponding: Bool = false
     var messages: [Message] = []
-    
+
+    private var hasModelResources: Bool {
+        guard let modelUrl else { return false }
+        return FileManager.default.fileExists(atPath: modelUrl.appending(path: "metadata.json").path)
+    }
+
+    init() {
+        if !hasModelResources {
+            status = .missingResources
+        }
+    }
     
     func loadSession() async {
         self.status = .loading
         
-        guard let modelUrl = modelUrl else {
-            status = .failed(URLError(.badURL))
+        guard hasModelResources, let modelUrl else {
+            status = .missingResources
             return
         }
 
@@ -77,6 +87,7 @@ final class ViewModel {
 }
 
 enum ModelState {
+    case missingResources
     case unloaded
     case loading
     case ready

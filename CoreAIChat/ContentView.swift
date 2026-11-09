@@ -13,6 +13,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
             switch vm.status {
+            case .missingResources:
+                ErrorView(
+                    title: "Model Resources Missing",
+                    description: "Copy the complete exported model resources, including metadata.json, into the project's model/ folder, then rebuild and run the app. See Getting Started in README.md for instructions.",
+                    icon: "folder.badge.questionmark"
+                )
             case .failed(let error):
                 ErrorView(
                     title: "Error",
