@@ -159,6 +159,10 @@ Then replace `YOUR_TEAM_ID` and the example bundle identifier in
 signing values do not end up in `project.pbxproj`. Unsigned command-line builds
 do not require this file.
 
+If the bundled `model/` directory or its `metadata.json` is missing, the app
+shows **Model Resources Missing** with setup instructions. Copy the complete
+exported resources into `model/`, then rebuild and run the app.
+
 Select the `CoreAIChat` scheme in Xcode and run it. Choose **Load Model**, wait
 for the local model to load and prewarm, then start a conversation. The first
 load can take a little longer.
