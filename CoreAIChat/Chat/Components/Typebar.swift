@@ -47,6 +47,7 @@ struct Typebar: View {
                 .glassEffect(in: .circle)
             }
             .buttonStyle(.plain)
+            .accessibilityLabel("Send message")
             .foregroundStyle(canSend ? Color.accentColor : Color.secondary)
             .disabled(!canSend)
         }
