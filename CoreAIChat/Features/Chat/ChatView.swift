@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatView: View {
-    @Bindable var vm: ViewModel
+    @Bindable var vm: ChatViewModel
     private let bottomID = "chat-bottom"
 
     var body: some View {
@@ -53,8 +53,7 @@ struct ChatView: View {
 
 #Preview {
     ChatView(vm: {
-        let vm = ViewModel()
-        vm.status = .ready
+        let vm = ChatViewModel()
         vm.isResponding = true
         vm.draft = "Hello!"
         vm.messages = [
