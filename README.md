@@ -133,7 +133,7 @@ open CoreAIChat.xcodeproj
 
 Copy the **complete contents of the exported resource directory** into the
 empty `model/` placeholder. This generic directory is already included in the
-CoreAIChat app target and referenced by `ViewModel.swift`.
+CoreAIChat app target and referenced by `Core/Inference/InferenceService.swift`.
 
 When using another compatible model:
 
@@ -213,7 +213,15 @@ func respond(to prompt: String) async throws -> String {
 
 ```text
 CoreAIChat/
-├── CoreAIChat/                       SwiftUI app source
+├── CoreAIChat/
+│   ├── App/                         App entry point and root composition
+│   ├── Features/
+│   │   ├── Chat/                    Conversation state, views, and components
+│   │   └── ModelManagement/         Bundled-model setup view
+│   ├── Core/Inference/              Model loading, session, and runtime state
+│   ├── Models/                      Shared conversation data types
+│   ├── Shared/Components/           Reusable error presentation
+│   └── Assets.xcassets/             App assets
 ├── CoreAIChat.xcodeproj/             Xcode project and package resolution
 ├── Config/                           Shared and local build settings
 ├── docs/features/                    Feature behavior and acceptance criteria
@@ -221,6 +229,15 @@ CoreAIChat/
 ├── model/                            Generic untracked model-resource placeholder
 └── Icon.icon/                        App icon source
 ```
+
+The root `ContentView` owns an `InferenceService` and a `ChatViewModel` per
+window and injects that same service into the chat model. `InferenceService`
+owns the `LanguageModelSession`, loads and prewarms the bundled model, and
+returns generated text. `ChatViewModel` manages the draft, visible messages,
+and response progress. Both keep observable state on the main actor.
+
+Future conversation storage and inspector features can be added when implemented;
+the current app remains a single target without additional dependencies.
 
 ## License
 

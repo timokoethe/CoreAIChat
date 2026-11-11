@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var vm: ViewModel = ViewModel()
+    @State private var inference: InferenceService
+    @State private var vm: ChatViewModel
+
+    init() {
+        let inference = InferenceService()
+        _inference = State(initialValue: inference)
+        _vm = State(initialValue: ChatViewModel(inference: inference))
+    }
     
     var body: some View {
         VStack {
-            switch vm.status {
+            switch inference.status {
             case .missingResources:
                 ErrorView(
                     title: "Model Resources Missing",
@@ -26,7 +33,7 @@ struct ContentView: View {
                     icon: "nosign",
                     retry: {
                         Task {
-                            await vm.loadSession()
+                            await inference.loadModel()
                         }
                     }
                 )
@@ -34,7 +41,7 @@ struct ContentView: View {
                 ProgressView("Loading Model...")
             case .unloaded:
                 ModelSetupView {
-                    await vm.loadSession()
+                    await inference.loadModel()
                 }
             case .ready:
                 ChatView(vm: vm)

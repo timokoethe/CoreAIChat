@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Typebar: View {
-    @Bindable var vm: ViewModel
+    @Bindable var vm: ChatViewModel
 
     private var canSend: Bool {
         !vm.isResponding
@@ -57,5 +57,5 @@ struct Typebar: View {
 }
 
 #Preview() {
-    Typebar(vm: ViewModel())
+    Typebar(vm: ChatViewModel())
 }
