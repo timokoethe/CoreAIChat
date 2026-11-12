@@ -55,7 +55,8 @@ Gemma 3 is used below only as an export example.
 The implemented behavior is documented in [`docs/features/`](docs/features/),
 including [model loading](docs/features/model-loading.md),
 [chat conversations](docs/features/chat-conversation.md), and
-[error handling](docs/features/error-handling.md).
+[error handling](docs/features/error-handling.md), plus
+[starting a new conversation](docs/features/new-conversation.md).
 
 ## Project Status
 
@@ -92,7 +93,13 @@ repository and enter it:
 ```sh
 git clone https://github.com/apple/coreai-models.git
 cd coreai-models
+git checkout 09ff139050d72e54dd8c073534c6ddd5927b5546
 ```
+
+This revision matches the `coreai-models` runtime pinned in
+`CoreAIChat.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved`.
+Use the same revision for exports and the app runtime so their resource formats
+stay compatible.
 
 ### 2. Choose and export a model
 
@@ -173,6 +180,10 @@ load can take a little longer.
 The chat opens only after the model engine has loaded successfully. If loading
 fails, the app shows the error with a **Try Again** button.
 
+Use **New Conversation** in the chat toolbar to clear all messages, the draft,
+and the model's conversation context while keeping the model loaded. This
+action takes effect immediately and is disabled while a response is running.
+
 For a signing-independent compile check, use Xcode 27:
 
 ```sh
@@ -205,6 +216,7 @@ func respond(to prompt: String) async throws -> String {
     }
 
     let model = try await CoreAILanguageModel(resourcesAt: modelURL)
+    try await model.load()
     let session = LanguageModelSession(model: model)
     let response = try await session.respond(to: prompt)
 
@@ -241,6 +253,8 @@ and response progress. Both keep observable state on the main actor.
 
 Future conversation storage and inspector features can be added when implemented;
 the current app remains a single target without additional dependencies.
+Conversation history is kept only in memory for each window and is not saved
+between app launches.
 
 ## License
 

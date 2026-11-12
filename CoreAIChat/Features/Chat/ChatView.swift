@@ -48,6 +48,15 @@ struct ChatView: View {
             Typebar(vm: vm)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button("New Conversation", systemImage: "square.and.pencil") {
+                    vm.startNewConversation()
+                }
+                .disabled(vm.isResponding)
+                .help("Clear the conversation and start fresh")
+            }
+        }
     }
 }
 
