@@ -7,6 +7,7 @@ import Observation
 @MainActor
 @Observable
 final class InferenceService {
+    private var model: CoreAILanguageModel?
     private var session: LanguageModelSession?
     private let modelUrl: URL? = Bundle.main.url(forResource: "model", withExtension: nil)
 
@@ -36,6 +37,7 @@ final class InferenceService {
             try await model.load()
             let session = LanguageModelSession(model: model)
             session.prewarm()
+            self.model = model
             self.session = session
         } catch {
             print(error.localizedDescription)
@@ -44,6 +46,16 @@ final class InferenceService {
         }
         
         self.status = .ready
+    }
+
+    func startNewConversation() throws {
+        try validateSession()
+        guard let model else {
+            let error = URLError(.badServerResponse)
+            status = .failed(error)
+            throw error
+        }
+        session = LanguageModelSession(model: model)
     }
     
     /// Checks availability before the chat commits a submitted draft.

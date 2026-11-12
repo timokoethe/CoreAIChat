@@ -19,6 +19,19 @@ final class ChatViewModel {
         self.inference = inference
     }
 
+    func startNewConversation() {
+        guard !isResponding else { return }
+
+        do {
+            try inference.startNewConversation()
+            messages.removeAll()
+            draft = ""
+        } catch {
+            // Inference exposes the failure through the root loading error view.
+            return
+        }
+    }
+
     func getResponse() async {
         let submittedPrompt = draft.trimmingCharacters(in: .whitespacesAndNewlines)
 

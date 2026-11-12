@@ -20,6 +20,7 @@ As a user, I want to see what went wrong so that I can fix the setup or retry.
 - A failed model load replaces the whole view with a `ContentUnavailableView` showing the error description and a `Try Again` button.
 - A missing bundled `model/` directory or `metadata.json` instead shows setup instructions without a retry button, since adding bundled resources requires rebuilding the app.
 - Selecting `Try Again` starts a new model-loading attempt and shows loading progress while it runs.
-- A failed generation is shown as an assistant bubble containing the error description; the conversation stays usable.
+- A generation error from an available session is shown as an assistant bubble containing the error description; the conversation stays usable.
+- If the model session is unavailable when submitting, the app shows the loading error view with a retry button and preserves the draft without appending a message.
 - The app never crashes on a missing model resource or an unavailable session.
 - Error text reflects limitations of the local runtime on macOS 27, not a remote service.
