@@ -8,10 +8,20 @@
 import SwiftUI
 
 struct MessageBubble: View {
+    @Environment(\.colorScheme) private var colorScheme
+
     let message: Message
 
     private var isUser: Bool {
         message.role == .user
+    }
+
+    private var bubbleColor: Color {
+        if colorScheme == .dark {
+            Color(white: isUser ? 0.26 : 0.16)
+        } else {
+            Color(white: isUser ? 0.90 : 0.98)
+        }
     }
     
     var body: some View {
@@ -22,14 +32,14 @@ struct MessageBubble: View {
                 .textSelection(.enabled)
                 .padding(.horizontal, 13)
                 .padding(.vertical, 9)
-                .foregroundStyle(isUser ? .white : .primary)
+                .foregroundStyle(.primary)
                 .background {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .fill(isUser ? Color.accentColor : Color.secondary.opacity(0.12))
+                        .fill(bubbleColor)
                 }
                 .overlay {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .stroke(.primary.opacity(isUser ? 0 : 0.08))
+                        .stroke(.primary.opacity(0.08))
                 }
             
             if !isUser { Spacer(minLength: 48) }
