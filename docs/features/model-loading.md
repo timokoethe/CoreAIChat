@@ -18,6 +18,7 @@ As a user, I want to load the local model with one click so that I can start cha
 ## Acceptance Criteria
 
 - On launch, if the bundled `model/` directory and its `metadata.json` exist, the app briefly explains that the bundled model runs locally and shows a prominent `Load Model` button; nothing is loaded until it is pressed.
+- The model setup view uses a neutral icon and a native Liquid Glass load button to match the app icon and chat bubbles, without blue branding.
 - If the directory or `metadata.json` is missing, the app shows `Model Resources Missing` with instructions to copy the complete export into `model/`, rebuild, and consult Getting Started in `README.md`. No load or retry button is shown.
 - While loading, a progress indicator is shown and the UI stays responsive.
 - Loading reads the complete exported resource directory bundled with the app, not just the `.aimodel`.

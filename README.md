@@ -47,7 +47,8 @@ Gemma 3 is used below only as an export example.
 - **See the complete chat flow:** The showcase covers loading, prewarming,
   prompt submission, progress feedback, conversation history, and errors.
 - **Chat in neutral colors:** White and gray message bubbles match the app icon
-  and adapt to light and dark appearance.
+  and adapt to light and dark appearance. The model setup view uses matching
+  neutral branding and a Liquid Glass load button.
 - **Learn from documented behavior:** Concise feature specifications describe
   the observable model-loading, conversation, and error states.
 
