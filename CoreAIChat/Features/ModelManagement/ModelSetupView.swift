@@ -14,9 +14,9 @@ struct ModelSetupView: View {
         VStack(spacing: 20) {
             Image(systemName: "cpu")
                 .font(.system(size: 28, weight: .medium))
-                .foregroundStyle(.tint)
+                .foregroundStyle(.primary)
                 .frame(width: 56, height: 56)
-                .background(.tint.opacity(0.12), in: .circle)
+                .background(Color.gray.opacity(0.12), in: .circle)
 
             VStack(spacing: 6) {
                 Text("Chat Locally")
@@ -33,7 +33,7 @@ struct ModelSetupView: View {
                     await loadModel()
                 }
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.glass)
             .controlSize(.large)
         }
         .padding(40)
