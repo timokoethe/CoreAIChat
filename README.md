@@ -73,6 +73,13 @@ compatibility and setup requirements can vary between `coreai-models` releases.
 You need macOS 27 and Xcode 27. Model export can require
 substantial disk space and memory; requirements vary by model.
 
+Clone the app repository:
+
+```sh
+git clone https://github.com/timokoethe/CoreAIChat.git
+cd CoreAIChat
+```
+
 ### 1. Prepare the export tools
 
 Install [uv](https://docs.astral.sh/uv/) if it is not already available:
@@ -91,6 +98,7 @@ Clone Apple's [`coreai-models`](https://github.com/apple/coreai-models)
 repository and enter it:
 
 ```sh
+cd ..
 git clone https://github.com/apple/coreai-models.git
 cd coreai-models
 git checkout 09ff139050d72e54dd8c073534c6ddd5927b5546
@@ -135,14 +143,16 @@ Commands and prerequisites differ between models. Treat the matching recipe in
 
 ### 3. Add the model to Xcode
 
-Open the project:
+Return to the app repository, copy the **complete contents of the exported
+resource directory** into `model/`, and open the project. For the Gemma 3 example:
 
 ```sh
+cd ../CoreAIChat
+cp -R ../coreai-models/exports/gemma_3_4b_it_4bit_dynamic/. model/
 open CoreAIChat.xcodeproj
 ```
 
-Copy the **complete contents of the exported resource directory** into the
-empty `model/` placeholder. This generic directory is already included in the
+The generic `model/` placeholder is already included in the
 CoreAIChat app target and referenced by `Core/Inference/InferenceService.swift`.
 
 When using another compatible model:
@@ -174,11 +184,11 @@ shows **Model Resources Missing** with setup instructions. Copy the complete
 exported resources into `model/`, then rebuild and run the app.
 
 Select the `CoreAIChat` scheme in Xcode and run it. Choose **Load Model**, wait
-for the local model to load and prewarm, then start a conversation. The first
+for the local model to load, then start a conversation. The first
 load can take a little longer.
 
-The chat opens only after the model engine has loaded successfully. If loading
-fails, the app shows the error with a **Try Again** button.
+The app waits for the model engine to load, requests session prewarming, then
+opens the chat. If loading fails, it shows the error with a **Try Again** button.
 
 Use **New Conversation** in the chat toolbar to clear all messages, the draft,
 and the model's conversation context while keeping the model loaded. This
@@ -189,6 +199,10 @@ with a fixed corner radius, then scrolls internally. Press **Shift-Return** to i
 **Return** or click the send button to send. Internal line breaks are
 preserved; empty or whitespace-only drafts cannot be sent. You can prepare the
 next draft while a response is running, but sending is disabled until it finishes.
+
+Responses appear in full when generation finishes; streaming and cancellation
+are not supported. Conversations are kept only in memory per window and are
+not saved between app launches.
 
 For a signing-independent compile check, use Xcode 27:
 
@@ -257,10 +271,8 @@ owns the `LanguageModelSession`, loads and prewarms the bundled model, and
 returns generated text. `ChatViewModel` manages the draft, visible messages,
 and response progress. Both keep observable state on the main actor.
 
-Future conversation storage and inspector features can be added when implemented;
-the current app remains a single target without additional dependencies.
-Conversation history is kept only in memory for each window and is not saved
-between app launches.
+The app has a single target using the `CoreAILM` package from `coreai-models`
+and its transitive dependencies.
 
 ## License
 
