@@ -194,7 +194,8 @@ Use **New Conversation** in the chat toolbar to clear all messages, the draft,
 and the model's conversation context while keeping the model loaded. This
 action takes effect immediately and is disabled while a response is running.
 
-The message field supports multiple lines and grows up to six visible lines
+The message field and send button share a single glass background. The field
+supports multiple lines and grows up to six visible lines
 with a fixed corner radius, then scrolls internally. Press **Shift-Return** to insert a line break and
 **Return** or click the send button to send. Internal line breaks are
 preserved; empty or whitespace-only drafts cannot be sent. You can prepare the
