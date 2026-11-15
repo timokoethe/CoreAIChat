@@ -23,7 +23,6 @@ struct Typebar: View {
                 .padding(.horizontal, 6)
                 .textFieldStyle(.plain)
                 .padding(8)
-                .glassEffect(in: .rect(cornerRadius: 18))
                 .accessibilityLabel("Message")
                 .help("Return sends the message. Shift-Return inserts a new line.")
                 .onKeyPress(.return, phases: .down) { press in
@@ -47,7 +46,6 @@ struct Typebar: View {
                 }
                 .frame(width: 32, height: 32)
                 .contentShape(.circle)
-                .glassEffect(in: .circle)
             }
             .buttonStyle(.plain)
             .help("Send message (Return)")
@@ -55,6 +53,8 @@ struct Typebar: View {
             .foregroundStyle(canSend ? Color.accentColor : Color.secondary)
             .disabled(!canSend)
         }
+        .padding(6)
+        .glassEffect(in: .rect(cornerRadius: 18))
         .padding(6)
         .frame(maxWidth: 700)
     }

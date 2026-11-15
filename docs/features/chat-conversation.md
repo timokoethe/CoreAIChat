@@ -20,7 +20,7 @@ As a user, I want to type a prompt and get an answer so that I can have a conver
 - The draft supports multiple lines, including pasted text. Shift-Return inserts a newline; the field wraps long lines, grows from one to six visible lines, and scrolls internally for longer drafts. The send button stays aligned with the bottom of the field.
 - The send button and Return submit the draft only if it contains non-whitespace text and no response is running. Return does not insert a newline, including when sending is disabled. Leading and trailing whitespace is removed before sending; internal line breaks are preserved.
 - Shift-Return inserts a newline at the cursor or replaces the selected text with a newline, leaving the cursor directly after it.
-- The input's glass background keeps an 18-point corner radius as the field grows.
+- The text field and send button share one glass background with an 18-point corner radius as the field grows; the send button has no separate glass surface.
 - Submission requires an available model session; otherwise the app shows the loading error view and preserves the draft without appending a user message.
 - The sent message appears immediately as a user bubble; the draft field is cleared.
 - User bubbles are gray and assistant bubbles are near-white in light appearance; both use neutral dark grays in dark appearance, with readable text and no blue bubble fills.
