@@ -50,6 +50,8 @@ metadata.json
 !tokenizer_overrides/
 !tokenizer_overrides/tokenizer/
 !tokenizer_overrides/tokenizer/**
+/model/*
+!/model/.gitkeep
 
 ## Swift Package Manager
 # Packages/
