@@ -183,6 +183,10 @@ If the bundled `model/` directory or its `metadata.json` is missing, the app
 shows **Model Resources Missing** with setup instructions. Copy the complete
 exported resources into `model/`, then rebuild and run the app.
 
+When you choose **Load Model**, the app checks that the export includes an
+embedded tokenizer. If it is missing, the app shows **Model Tokenizer Missing**.
+Copy a complete export with an embedded tokenizer into `model/` and rebuild.
+
 Select the `CoreAIChat` scheme in Xcode and run it. Choose **Load Model**, wait
 for the local model to load, then start a conversation. The first
 load can take a little longer.
@@ -221,19 +225,29 @@ xcodebuild -project CoreAIChat.xcodeproj \
 
 The central integration is deliberately small. The stable `model` resource
 name points to whichever compatible exported model is currently placed in the
-generic resource directory.
+generic resource directory. The export must include an embedded tokenizer.
 
 ```swift
 import Foundation
 import FoundationModels
 import CoreAILanguageModels
 
+enum ModelResourceError: Error {
+    case missingModelDirectory
+    case missingEmbeddedTokenizer
+}
+
 func respond(to prompt: String) async throws -> String {
     guard let modelURL = Bundle.main.url(
         forResource: "model",
         withExtension: nil
     ) else {
-        throw URLError(.fileDoesNotExist)
+        throw ModelResourceError.missingModelDirectory
+    }
+
+    let bundle = try LanguageModelBundle(at: modelURL)
+    guard bundle.hasEmbeddedTokenizer else {
+        throw ModelResourceError.missingEmbeddedTokenizer
     }
 
     let model = try await CoreAILanguageModel(resourcesAt: modelURL)
