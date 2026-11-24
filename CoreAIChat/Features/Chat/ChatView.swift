@@ -48,6 +48,9 @@ struct ChatView: View {
             Typebar(vm: vm)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onDisappear {
+            vm.cancelResponse()
+        }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button("New Conversation", systemImage: "square.and.pencil") {
