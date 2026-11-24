@@ -26,6 +26,12 @@ struct ContentView: View {
                     description: "Copy the complete exported model resources, including metadata.json, into the project's model/ folder, then rebuild and run the app. See Getting Started in README.md for instructions.",
                     icon: "folder.badge.questionmark"
                 )
+            case .missingTokenizer:
+                ErrorView(
+                    title: "Model Tokenizer Missing",
+                    description: "Copy the complete export with an embedded tokenizer, including tokenizer/tokenizer.json, into the project's model/ folder, then rebuild and run the app. See Getting Started in README.md for instructions.",
+                    icon: "folder.badge.questionmark"
+                )
             case .failed(let error):
                 ErrorView(
                     title: "Error",

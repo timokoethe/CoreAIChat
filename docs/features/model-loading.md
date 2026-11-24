@@ -22,6 +22,7 @@ As a user, I want to load the local model with one click so that I can start cha
 - If the directory or `metadata.json` is missing, the app shows `Model Resources Missing` with instructions to copy the complete export into `model/`, rebuild, and consult Getting Started in `README.md`. No load or retry button is shown.
 - While loading, a progress indicator is shown and the UI stays responsive.
 - Loading reads the complete exported resource directory bundled with the app, not just the `.aimodel`.
+- Before initializing the runtime, loading checks for an embedded tokenizer. If it is missing, the app shows `Model Tokenizer Missing` with instructions to copy a complete export and rebuild.
 - The app loads the stable `model/` resource directory, so a compatible exported model can replace another without a source-code change.
 - The app waits for the model engine to load successfully before prewarming the session and showing the chat view; engine-loading failures show the error view.
 - Further validation of model resources is performed by `CoreAILanguageModels`; invalid or incompatible resources show the loading error view instead.

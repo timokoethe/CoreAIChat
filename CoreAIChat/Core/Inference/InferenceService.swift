@@ -33,6 +33,12 @@ final class InferenceService {
         }
 
         do {
+            let bundle = try LanguageModelBundle(at: modelUrl)
+            guard bundle.hasEmbeddedTokenizer else {
+                status = .missingTokenizer
+                return
+            }
+
             let model = try await CoreAILanguageModel(resourcesAt: modelUrl)
             try await model.load()
             let session = LanguageModelSession(model: model)

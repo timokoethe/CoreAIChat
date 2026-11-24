@@ -19,6 +19,7 @@ As a user, I want to see what went wrong so that I can fix the setup or retry.
 
 - A failed model load replaces the whole view with a `ContentUnavailableView` showing the error description and a `Try Again` button.
 - A missing bundled `model/` directory or `metadata.json` instead shows setup instructions without a retry button, since adding bundled resources requires rebuilding the app.
+- A missing embedded tokenizer shows `Model Tokenizer Missing` with setup instructions and no retry button. The app skips runtime initialization and the tokenizer download fallback.
 - Selecting `Try Again` starts a new model-loading attempt and shows loading progress while it runs.
 - A generation error from an available session is shown as an assistant bubble containing the error description. The input becomes available again, and the user can start a new conversation.
 - If the model session is unavailable when submitting, the app shows the loading error view with a retry button and preserves the draft without appending a message.
