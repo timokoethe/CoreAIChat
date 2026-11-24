@@ -118,7 +118,7 @@ Hugging Face CLI, and authenticate:
 
 ```sh
 brew install hf
-hf auth login --token <YOUR_TOKEN>
+hf auth login
 ```
 
 Then export the model from the `coreai-models` directory:
