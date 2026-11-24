@@ -31,11 +31,11 @@ struct Typebar: View {
                         return .handled
                     }
                     guard press.modifiers.isEmpty else { return .ignored }
-                    sendMessage()
+                    vm.sendMessage()
                     return .handled
                 }
 
-            Button(role: .confirm, action: sendMessage) {
+            Button(role: .confirm, action: vm.sendMessage) {
                 ZStack {
                     Color.clear
 
@@ -72,13 +72,6 @@ struct Typebar: View {
         selection = TextSelection(insertionPoint: String.Index(
             utf16Offset: insertionOffset + 1, in: vm.draft
         ))
-    }
-
-    private func sendMessage() {
-        guard canSend else { return }
-        Task {
-            await vm.getResponse()
-        }
     }
 }
 

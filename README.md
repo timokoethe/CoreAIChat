@@ -201,9 +201,9 @@ with a fixed corner radius, then scrolls internally. Press **Shift-Return** to i
 preserved; empty or whitespace-only drafts cannot be sent. You can prepare the
 next draft while a response is running, but sending is disabled until it finishes.
 
-Responses appear in full when generation finishes; streaming and cancellation
-are not supported. Conversations are kept only in memory per window and are
-not saved between app launches.
+Responses appear in full when generation finishes. Closing a chat window
+cancels any response in progress for that window. Conversations are kept only
+in memory per window and are not saved between app launches.
 
 For a signing-independent compile check, use Xcode 27:
 
